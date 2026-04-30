@@ -1,5 +1,6 @@
 import json
 import urllib.request
+import random
 
 def fetch_real_problems(num_problems=5):
     """
@@ -48,13 +49,15 @@ def fetch_real_problems(num_problems=5):
             if "several answers" in question_text or "print any" in question_text:
                 continue
             # -------------------------------
+            mock_diff = round(random.uniform(1.0,3.0),1)
             
             formatted_problems.append({
                 "id": problem_count + 1,
                 "title": f"APPS Challenge #{row['problem_id']} (Filtered)",
                 "description": row["question"],
                 "test_input": hidden_input,
-                "expected_output": expected_output
+                "expected_output": expected_output,
+                "difficulty": mock_diff
             })
             
             problem_count += 1

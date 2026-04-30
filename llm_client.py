@@ -67,6 +67,8 @@ def ask_ai_to_code(model_name, problem_description):
     # We navigate through that JSON to extract strictly the text message the AI wrote.
     
     raw_data = response.choices[0].message.content
+ 
+    
     
     return sanitize_code(raw_data)
 

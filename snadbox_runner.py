@@ -23,7 +23,6 @@ def evaluate_code(cpp_code, test_input, expected_output, time_limit=2.0):
 
     # If g++ throws an error, we catch it here
     if compile_process.returncode != 0:
-        print(f"the wrong answer: {cpp_code}")
         return "Compile Error (CE)", 0.0
 
     # 3. Run the compiled program and start the stopwatch
@@ -41,7 +40,7 @@ def evaluate_code(cpp_code, test_input, expected_output, time_limit=2.0):
         
         execution_time = time.time() - start_time
         actual_output = run_process.stdout.strip()
-        print(f"Ai output{actual_output}")
+        
 
         # 4. Grade the output against the answer key
         if actual_output == expected_output.strip():
